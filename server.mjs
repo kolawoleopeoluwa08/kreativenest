@@ -1,0 +1,12 @@
+import express from 'express';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const app = express();
+const root = path.dirname(fileURLToPath(import.meta.url));
+const dist = path.join(root, 'dist');
+app.disable('x-powered-by');
+app.get('/health', (_req, res) => res.status(200).json({ status: 'ok' }));
+app.use(express.static(dist, { maxAge: '1h', index: false }));
+app.use((_req, res) => res.sendFile(path.join(dist, 'index.html')));
+const port = Number(process.env.PORT || 3000);
+app.listen(port, '0.0.0.0', () => console.log(`KreativeNest ready on ${port}`));

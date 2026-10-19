@@ -1,0 +1,17 @@
+[functions.contact-submit]
+verify_jwt = false
+
+[functions.admin-bootstrap]
+verify_jwt = false
+
+[functions.admin-projects]
+verify_jwt = false
+
+[functions.admin-categories]
+verify_jwt = false
+
+[functions.admin-inquiries]
+verify_jwt = false
+
+[functions.admin-settings]
+verify_jwt = false
